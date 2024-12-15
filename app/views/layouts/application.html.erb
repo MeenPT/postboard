@@ -20,7 +20,9 @@
   </head>
   <body>
     <%= render "shared/navbar" %>
-    <main class="container">
+    <%= render "shared/noticed" %>
+    <%= render "shared/alert" %>
+    <main class="container py-4">
       <%= yield %>
     </main>
   </body>
