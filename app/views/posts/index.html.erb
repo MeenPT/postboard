@@ -1,4 +1,3 @@
-<p style="color: green"><%= notice %></p>
 <% content_for :title, "Posts" %>
 <h1>Posts</h1>
 <div id="posts">
@@ -10,4 +9,3 @@
   <% end %>
 </div>
 <%= link_to "New post", new_post_path, class: "btn btn-primary" %>
-<%= button_to "Logout", destroy_user_session_path, method: :delete %>
