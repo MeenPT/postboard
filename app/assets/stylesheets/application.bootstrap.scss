@@ -1,5 +1,11 @@
-@import "bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import "bootstrap-icons/font/bootstrap-icons";
+@import "bootstrap/scss/functions";
+
+$primary: #e60b5a;
+$font-family-sans-serif: "Nunito", serif;
+
+@import "bootstrap/scss/bootstrap";
 
 html,
 :root,
