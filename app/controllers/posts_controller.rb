@@ -18,11 +18,14 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    if @post.user != current_user
+      redirect_to root_path, alert: "You are not allowed to edit other's post."
+    end
   end
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
@@ -37,6 +40,17 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+    if @post.user != current_user
+      respond_to do |format|
+        format.html { redirect_to root_path, alert: "You're not allowed to update other's post." }
+        format.json { render json: {
+          error: "You're not allowed to update other's post."
+        },
+        status: :forbidden
+      }
+      end
+    end
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: "Post was successfully updated." }
@@ -50,6 +64,17 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
+    if @post.user != current_user
+      respond_to do |format|
+        format.html { redirect_to root_path, alert: "You're not allowed to delete other's post." }
+        format.json { render json: {
+          error: "You're not allowed to delete other's post."
+        },
+        status: :forbidden
+      }
+      end
+    end
+
     @post.destroy!
 
     respond_to do |format|
