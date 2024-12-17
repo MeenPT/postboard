@@ -1,5 +1,16 @@
 <% content_for :title, "Posts" %>
-<h1 class="mb-4">Posts (<%= @posts.length %>)</h1>
-<section class="vstack gap-4 mb-5">
-  <%= render @posts %>
+<div class="d-flex justify-content-between">
+  <h1 class="mb-4">Posts (<%= @posts.length %>)</h1>
+  <div>
+    <%= link_to "New", 
+                new_post_path, 
+                class: "btn btn-primary d-block",
+                data: { turbo_frame: dom_id(Post.new) } %>
+  </div>
+</div>
+<%= turbo_frame_tag Post.new %>
+<section>
+  <%= turbo_frame_tag "posts", class: "vstack gap-4 my-4" do %>
+    <%= render @posts %>
+  <% end %>
 </section>
