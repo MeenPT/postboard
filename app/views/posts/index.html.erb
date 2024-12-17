@@ -1,11 +1,5 @@
 <% content_for :title, "Posts" %>
-<h1>Posts</h1>
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
-</div>
-<%= link_to "New post", new_post_path, class: "btn btn-primary" %>
+<h1 class="mb-4">Posts (<%= @posts.length %>)</h1>
+<section class="vstack gap-4 mb-5">
+  <%= render @posts %>
+</section>
