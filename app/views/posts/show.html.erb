@@ -1,10 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @post %>
-
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+<%= link_to "Back to Posts", root_path, class: "btn btn-light" %>
+<div class="mt-5">
+  <h1><%= @post.title %></h1>
+  <% if user_signed_in? %>
+    <h2 class="lead">By: <%= @post.user.username %></h2>
+  <% end %>
+  <% if @post.content && !@post.content.empty? %>
+    <p class="mt-4"><%= @post.content %></p>
+  <% end %>
 </div>

@@ -14,3 +14,15 @@ body {
   box-sizing: border-box;
   height: 100%;
 }
+
+main#auth-layout {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #form-container {
+    width: 90%;
+    max-width: 500px;
+  }
+}

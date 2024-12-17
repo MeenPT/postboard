@@ -18,21 +18,8 @@
     <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
-  <style>
-    main {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #form-container{
-      width: 90%;
-      max-width: 500px;
-    }
-  </style>
   <body>
-    <main>
+    <main id="auth-layout">
       <div id="form-container" class="border rounded-3 p-4 shadow">
         <%= yield %>
       </div>
