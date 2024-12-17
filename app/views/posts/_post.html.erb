@@ -5,6 +5,6 @@
       <p class="card-subtitle mb-2 text-body-secondary"><%= post.user.username %></p>
     <% end %>
     <p class="card-text text-body-secondary"><%= post.content %></p>
-    <%= link_to "View Post", post, class: "btn btn-sm" %>
+    <%= link_to "View Post", post, class: "btn btn-sm", data: { turbo_frame: "_top" } %>
   </div>
 </article>
